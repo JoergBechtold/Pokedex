@@ -1,0 +1,15 @@
+/* Everything that is global comes in here */
+:root {
+  --header-height: 100px;
+  --footer-height: 90px;
+
+  --h1-size-header: clamp(24px, 14.9565px + 2.8261vw, 50px);
+  --header-logo: clamp(24px, 14.9565px + 2.8261vw, 50px);
+}
+
+/* Responsive Breakpoints!!
+Smartphones	320 - 480
+Tablets	481 - 768
+Laptops	769 - 1024
+Desktops	1025 - 1440
+Große Screens	1441+ */

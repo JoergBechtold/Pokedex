@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-family: 'Autour One';
+}
+
+body {
+  width: 100%;
+  height: calc(100dvh - var(--header-height) - var(--header-height));
+  position: relative;
+}
+
+main {
+  margin-top: var(--header-height);
+  min-height: calc(100dvh - var(--header-height) - var(--header-height));
+}
+.d-none {
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  /* width: 10px; */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* background-color: transparent;
+  border-radius: 10px; */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  /* background: var(--blue);
+  border-radius: 10px; */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  /* background: var(--light-blue);
+  cursor: grab; */
+}
+
+::-webkit-scrollbar-thumb:active {
+  /* background: var(--light-blue);
+  cursor: grabbing; */
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+
+    <!-- Embedding scripts -->
+    <!-- Scripts/templates must always be included before the normal scripts.js! -->
+    <script src="scripts/database.js"></script>
+    <script src="scripts/templates.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Embedding the favicon -->
+    <link rel="icon" href="assets/icons/Poké-Ball-icon.png" type="image/x-icon" />
+
+    <!-- Embedding the css -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/assets.css" />
+    <link rel="stylesheet" href="styles/fonts.css" />
+    <link rel="stylesheet" href="styles/standard.css" />
+  </head>
+  <body>
+    <header>
+      <div class="head-logo-name">
+        <a href="index.html"
+          ><img src="assets/icons/Poké-Ball-icon.png" alt="Pokedex Logo" />
+          <h1>POKEDEX</h1></a
+        >
+      </div>
+
+      <form onsubmit="return false">
+        <div class="search">
+          <!-- <img class="search-icon" src="assets/icons/black-search-icon.svg" alt="Lupe" /> -->
+          <input class="search-input" type="search" name="Search-input" id="Search_input" placeholder="Pokemon suchen" />
+        </div>
+      </form>
+    </header>
+    <main><h1>main</h1></main>
+
+    <footer><h1>footer</h1></footer>
+  </body>
+</html>

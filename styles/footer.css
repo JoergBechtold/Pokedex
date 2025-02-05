@@ -1,0 +1,9 @@
+footer {
+  height: var(--footer-height);
+  background-color: aqua;
+  /* position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+  width: 100%;
+}
