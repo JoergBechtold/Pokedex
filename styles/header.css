@@ -1,8 +1,9 @@
 header {
-  background-color: rgb(122, 11, 11);
+  grid-area: header;
+  height: var(--header-height);
+  background-color: white;
   border-bottom: var(--border);
   width: 100%;
-  height: var(--header-height);
   position: fixed;
   top: 0;
   right: 0;
@@ -10,40 +11,41 @@ header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  box-shadow: var(--box-shadow);
 }
 
-.head-logo-name {
+.head-logo {
   display: flex;
   align-items: center;
 }
 
-.head-logo-name h1 {
+.head-logo h1 {
   font-size: var(--h1-size-header);
   color: black;
 }
 
-.head-logo-name a {
+.head-logo a {
   display: flex;
   align-items: center;
-  /* width: 35px; */
-  /* aspect-ratio: 1 / 1; */
 }
 
-.head-logo-name a img {
+.header-logo-ball {
   aspect-ratio: 1 / 1;
-  height: var(--header-logo);
+  width: var(--header-logo);
+}
+
+.header-logo-name {
+  width: var(--header-logo-name);
 }
 
 .search {
   gap: 14px;
-  /* width: max-content; */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 14px;
   border-radius: 28px;
-  background-color: white;
-  width: 250px;
+  background-color: var(--light-gray);
 }
 
 .search img {
@@ -51,7 +53,7 @@ header {
 }
 
 .search-input {
-  text-align: center;
+  text-align: left;
   width: 100%;
   font-size: 20px;
   color: black;

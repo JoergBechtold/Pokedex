@@ -17,28 +17,70 @@
     <!-- Embedding the css -->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
     <link rel="stylesheet" href="styles/assets.css" />
     <link rel="stylesheet" href="styles/fonts.css" />
     <link rel="stylesheet" href="styles/standard.css" />
   </head>
-  <body>
+  <body onload="initFunction()">
     <header>
-      <div class="head-logo-name">
-        <a href="index.html"
-          ><img src="assets/icons/Poké-Ball-icon.png" alt="Pokedex Logo" />
-          <h1>POKEDEX</h1></a
-        >
+      <div class="head-logo">
+        <a href="index.html">
+          <img class="header-logo-ball" src="assets/icons/Poké-Ball-icon.png" alt="Pokedex Logo" />
+          <img class="header-logo-name" src="assets/img/test bild groß.png" alt="" />
+        </a>
       </div>
 
-      <form onsubmit="return false">
-        <div class="search">
-          <!-- <img class="search-icon" src="assets/icons/black-search-icon.svg" alt="Lupe" /> -->
-          <input class="search-input" type="search" name="Search-input" id="Search_input" placeholder="Pokemon suchen" />
-        </div>
-      </form>
+      <div class="search">
+        <img class="search-icon" src="assets/icons/black-search-icon.svg" alt="Lupe" />
+        <input class="search-input" type="search" name="Search-input" id="Search_input" placeholder="Pokemon suchen" />
+      </div>
     </header>
-    <main><h1>main</h1></main>
+    <main>
+      <h1>main</h1>
 
-    <footer><h1>footer</h1></footer>
+      <section>
+        <div id="show_all_cards_container" class="show-all-cards-container"><h1>halli</h1></div>
+      </section>
+    </main>
+
+    <footer>
+      <h2>The POKEDEX Company</h2>
+      <div class="d-flex-jc-center">
+        <div class="footer-links">
+          <a href="">Neuigkeiten</a>
+          <a href="">Pokedex-Ratgeber</a>
+          <a href="">Kundenservice</a>
+          <a href="">Über unsere Unternehmen</a>
+          <a href="">Land/Region auswählen</a>
+          <a href="">Presseseite</a>
+        </div>
+        <div class="footer-dividing-line"></div>
+        <div class="footer-sozial-media-icons">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+            ><img src="assets/icons/icon-facebook-50.png" alt="Icon link zu Facebook"
+          /></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+            ><img src="assets/icons/icon-instagram-50.png" alt="Icon link zu Instagram"
+          /></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer"><img src="assets/icons/icon-x-50.png" alt="Icon link zu X" /></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"
+            ><img src="assets/icons/icon-youtube-50.png" alt="Icon link zu Youtube"
+          /></a>
+        </div>
+        <div class="footer-dividing-line"></div>
+        <div class="footer-links">
+          <a href="">Nutzungsbedingungen</a>
+          <a href="">Datenschutzerklärung</a>
+          <a href="">Informationen zu Cookies</a>
+          <a href="">Rechtliche Hinweise</a>
+          <span
+            >©2025 POKEDEX. ©1995 - 2025 Nintendo/Creatures <br />
+            Inc./GAME FREAK inc. TM, ®Nintendo.</span
+          >
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

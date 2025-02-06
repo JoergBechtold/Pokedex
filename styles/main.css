@@ -1,0 +1,7 @@
+main {
+  grid-area: main;
+}
+
+.show-all-cards-container {
+  margin-inline: 15%;
+}

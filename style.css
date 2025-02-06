@@ -1,10 +1,23 @@
 /* Everything that is global comes in here */
 :root {
+  /* -sizes */
   --header-height: 100px;
   --footer-height: 90px;
+  --h1-size-header: clamp(18px, 14.5217px + 1.087vw, 28px);
+  --h2-size-footer: clamp(16px, 12.5217px + 1.087vw, 26px);
+  --a-size-footer: clamp(10px, 8.6087px + 0.4348vw, 14px);
+  --span-size-footer: clamp(9px, 7.9565px + 0.3261vw, 12px);
+  --sozial-media-icons-height-footer: clamp(40px, 34.7826px + 1.6304vw, 55px);
+  --sozial-media-icons-width-footer: clamp(40px, 34.7826px + 1.6304vw, 55px);
+  --header-logo: clamp(35px, 22.8261px + 3.8043vw, 70px);
+  --header-logo-name: clamp(110px, 61.3043px + 15.2174vw, 250px);
 
-  --h1-size-header: clamp(24px, 14.9565px + 2.8261vw, 50px);
-  --header-logo: clamp(24px, 14.9565px + 2.8261vw, 50px);
+  /* color */
+  --footer-gray: #1f1f1f;
+  --light-gray: #b4b2b2;
+
+  /* shadow */
+  --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive Breakpoints!!
