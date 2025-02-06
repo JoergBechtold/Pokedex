@@ -1,8 +1,12 @@
 /* Everything that is global comes in here */
 :root {
+  /* margin */
+  --margin-10percent: 10%;
+  --margin-35px: 35px;
+
   /* -sizes */
   --header-height: 100px;
-  --footer-height: 90px;
+  --footer-height: 250px;
   --h1-size-header: clamp(18px, 14.5217px + 1.087vw, 28px);
   --h2-size-footer: clamp(16px, 12.5217px + 1.087vw, 26px);
   --a-size-footer: clamp(10px, 8.6087px + 0.4348vw, 14px);
@@ -18,6 +22,10 @@
 
   /* shadow */
   --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  --box-shadow-big: 15px 14px 12px 8px #212121e6;
+
+  /* border */
+  --border-radius-16px: 16px;
 }
 
 /* Responsive Breakpoints!!
