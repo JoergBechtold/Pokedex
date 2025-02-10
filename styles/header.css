@@ -1,16 +1,13 @@
 header {
   grid-area: header;
   height: var(--header-height);
-  background-color: white;
+  background-color: var(--light-gray);
   border-bottom: var(--border);
-  /* width: 100%; */
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   display: flex;
-  /* justify-content: space-between;
-  align-items: center; */
   box-shadow: var(--box-shadow);
 }
 
@@ -47,6 +44,8 @@ header {
 }
 
 .search {
+  position: relative;
+  border: var(--border-black);
   height: 50px;
   gap: 14px;
   display: flex;
@@ -54,7 +53,15 @@ header {
   justify-content: center;
   padding: 14px;
   border-radius: 28px;
-  background-color: var(--light-gray);
+  background-color: var(--secondary);
+}
+
+.search::after {
+  content: 'mindestens drei buchstaben eingeben';
+  color: red;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
 }
 
 .search img {

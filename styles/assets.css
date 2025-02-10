@@ -1,1 +1,14 @@
 /* This is where the style of buttons, for example, comes in */
+.show-more-btn {
+  cursor: pointer;
+  background-color: var(--secondary);
+  border-radius: 5px;
+  border: none;
+  padding: 15px;
+  border: var(--border-black);
+  font-size: var(--span-size-headline-card);
+}
+
+.show-more-btn:hover {
+  background-color: var(--secondary-hover);
+}

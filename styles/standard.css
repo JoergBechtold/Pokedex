@@ -18,6 +18,11 @@ body {
   position: relative;
 }
 
+.d-col {
+  display: flex;
+  flex-direction: column;
+}
+
 .d-flex-jc-center {
   display: flex;
   justify-content: center;
@@ -37,28 +42,26 @@ a {
 
 /* width */
 ::-webkit-scrollbar {
-  /* width: 10px; */
+  width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  /* background-color: transparent;
-  border-radius: 10px; */
+  background-color: transparent;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  /* background: var(--blue);
-  border-radius: 10px; */
+  background: var(--secondary);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  /* background: var(--light-blue);
-  cursor: grab; */
+  background: var(--secondary);
+  cursor: grab;
 }
 
 ::-webkit-scrollbar-thumb:active {
-  /* background: var(--light-blue);
-  cursor: grabbing; */
+  background: var(--secondary);
+  cursor: grabbing;
 }

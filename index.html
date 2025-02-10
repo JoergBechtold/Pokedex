@@ -15,6 +15,7 @@
     <link rel="icon" href="assets/icons/Poké-Ball-icon.png" type="image/x-icon" />
 
     <!-- Embedding the css -->
+    <link rel="stylesheet" href="styles/singleCard.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/main.css" />
@@ -41,8 +42,14 @@
     </header>
 
     <main>
-      <section>
-        <div id="show_all_cards_container" class="show-all-cards-container"></div>
+      <section class="card-section">
+        <div id="show_all_cards_container" class="show-all-cards-container">
+          <!-- render cards here in javascript -->
+        </div>
+
+        <div id="show_more_btn_container" class="show-more-btn-container">
+          <button id="show_more_btn" onclick="onclickLoadNextFortyData()" class="show-more-btn">Zeige mir mehr</button>
+        </div>
       </section>
     </main>
 
