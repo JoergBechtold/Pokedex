@@ -1,5 +1,13 @@
 /* This is where the style of buttons, for example, comes in */
+.show-more-btn-container {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  justify-self: center;
+  display: none;
+}
+
 .show-more-btn {
+  display: flex;
   cursor: pointer;
   background-color: var(--secondary);
   border-radius: 5px;
@@ -11,4 +19,89 @@
 
 .show-more-btn:hover {
   background-color: var(--secondary-hover);
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-spinner img {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  aspect-ratio: 1 / 1;
+  background-color: transparent;
+  animation: spinner 1.5s infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#data_could_not_be_loaded {
+  display: none;
+  margin-bottom: 50px;
+}
+
+.loading-dots {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* cursor: pointer; */
+  background-color: var(--secondary);
+  border-radius: 5px;
+  /* border: none; */
+  padding: 15px;
+  border: var(--border-black);
+  font-size: var(--span-size-headline-card);
+}
+
+.dot {
+  height: 18px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: black;
+  animation: dots 1.5s infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes dots {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

@@ -20,12 +20,14 @@
   /* color */
   --footer-gray: #1f1f1f;
   --light-gray: #e8e8e8;
-  --secondary: #fad08d;
-  --secondary-hover: #ffebcd;
+  /* --secondary: #fad08d; */
+  --secondary: #ffcc03;
+  --secondary-hover: #f9dc68;
+  /* --secondary-hover: #ffebcd; */
 
   /* shadow */
   --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-  --box-shadow-big: 15px 14px 12px 8px #212121e6;
+  --box-shadow-big: 0px 0px 5px 11px rgba(0, 0, 0, 0.2);
 
   /* border */
   --border-radius-16px: 16px;

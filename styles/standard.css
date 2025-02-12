@@ -28,8 +28,16 @@ body {
   justify-content: center;
 }
 
+.d-flex {
+  display: flex;
+}
+
 .d-none {
   display: none;
+}
+
+.padding-bottom-50px {
+  padding-bottom: 50px;
 }
 
 .no-scroll {
@@ -38,6 +46,19 @@ body {
 
 a {
   text-decoration: none;
+}
+
+/* color for Pokemon */
+.grass {
+  background-color: green;
+}
+
+.fire {
+  background-color: red;
+}
+
+.water {
+  background-color: blue;
 }
 
 /* width */
