@@ -12,6 +12,7 @@
   --a-size-footer: clamp(10px, 8.6087px + 0.4348vw, 14px);
   --span-size-footer: clamp(9px, 7.9565px + 0.3261vw, 12px);
   --span-size-headline-card: clamp(12px, 9.913px + 0.6522vw, 18px);
+  --span-size-20-30: clamp(20px, 16.5217px + 1.087vw, 30px);
   --sozial-media-icons-height-footer: clamp(40px, 34.7826px + 1.6304vw, 55px);
   --sozial-media-icons-width-footer: clamp(40px, 34.7826px + 1.6304vw, 55px);
   --header-logo: clamp(35px, 22.8261px + 3.8043vw, 70px);

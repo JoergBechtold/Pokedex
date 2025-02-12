@@ -41,7 +41,7 @@ function initFunction() {
 // }
 
 async function loadDataSinglePokemon() {
-  const { showMoreBtnContainerRef } = getIdRefs();
+  const { showMoreBtnContainerRef, dataCouldNotBeLoadedRef } = getIdRefs();
 
   try {
     let BASE_URL = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=120&offset=0.`);
@@ -52,6 +52,8 @@ async function loadDataSinglePokemon() {
     checkButtonVisibility();
   } catch (error) {
     showMoreBtnContainerRef.classList.add('d-none');
+    removeLoadingSpinner();
+    dataCouldNotBeLoadedRef.classList.add('d-flex');
   }
 }
 
@@ -99,16 +101,6 @@ async function loadPokemonInformation() {
   } catch (error) {
     alert('Irgendwas stimmt nicht');
   }
-}
-
-function showLoadingSpinner() {
-  const { loadingContainerRef } = getIdRefs();
-  loadingContainerRef.classList.add('flex');
-}
-
-function removeLoadingSpinner() {
-  const { loadingContainerRef } = getIdRefs();
-  loadingContainerRef.classList.add('none');
 }
 
 function onclickLoadNextFortyData() {

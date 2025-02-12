@@ -22,7 +22,7 @@
 }
 
 .loading-container {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -52,7 +52,8 @@
   }
 }
 
-#data_could_not_be_loaded {
+.data-could-not-be-loaded {
+  font-size: var(--span-size-20-30);
   display: none;
   margin-bottom: 50px;
 }
