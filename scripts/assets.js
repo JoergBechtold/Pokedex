@@ -14,6 +14,7 @@ function getIdRefs() {
     loadingDotsRef: document.getElementById('loading_dots'),
     showAllCardsContainerRef: document.getElementById('show_all_cards_container'),
     showMoreBtnContainerRef: document.getElementById('show_more_btn_container'),
+    dataCouldNotLoadedContainerRef: document.getElementById('data_could_not_loaded_container'),
     dataCouldNotBeLoadedRef: document.getElementById('data_could_not_be_loaded'),
   };
 }
