@@ -50,6 +50,7 @@ footer h2 {
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
+  height: fit-content;
 }
 
 .footer-sozial-media-icons a {

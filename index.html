@@ -7,7 +7,7 @@
 
     <!-- Embedding scripts -->
     <!-- Scripts/templates must always be included before the normal scripts.js! -->
-    <script src="scripts/database.js"></script>
+    <script src="scripts/fetchApi.js"></script>
     <script src="scripts/templates.js"></script>
     <script src="scripts/assets.js"></script>
     <script src="script.js"></script>
@@ -44,6 +44,14 @@
 
     <main>
       <section class="card-section">
+        <div class="loading-overlay" id="loading_overlay">
+          <div id="loading_dots" class="loading-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+
         <div id="show_all_cards_container" class="show-all-cards-container">
           <!-- render cards here in javascript -->
 
@@ -60,12 +68,7 @@
         <div class="data-could-not-loaded-container" id="data_could_not_loaded_container"></div>
 
         <div id="show_more_btn_container" class="show-more-btn-container">
-          <button id="show_more_btn" onclick="onclickLoadNextFortyData()" class="show-more-btn">Zeige mir mehr</button>
-          <div id="loading_dots" class="loading-dots">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-          </div>
+          <button id="show_more_btn" onclick="loadMorePokemon()" class="show-more-btn">Zeige mir mehr</button>
         </div>
       </section>
     </main>

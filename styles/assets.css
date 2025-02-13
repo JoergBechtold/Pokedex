@@ -63,8 +63,21 @@
 
 .data-could-not-be-loaded {
   font-size: var(--span-size-20-30);
-  /* display: flex; */
-  /* margin-bottom: 50px; */
+}
+
+.loading-overlay {
+  z-index: 998;
+  display: none;
+  position: fixed;
+  border-radius: var(--border-radius-16px);
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100dvh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(6px);
 }
 
 .loading-dots {
@@ -72,23 +85,20 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  /* cursor: pointer; */
   background-color: var(--secondary);
   border-radius: 5px;
-  /* border: none; */
   padding: 15px;
   border: var(--border-black);
   font-size: var(--span-size-headline-card);
 }
 
 .dot {
-  background-image: url('/assets/icons/Poké-Ball-icon.png');
+  background-image: url('../assets/icons/Poké-Ball-icon.png');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 24px;
+  height: 70px;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  /* background-color: black; */
   animation: dots 1.5s infinite;
 }
 

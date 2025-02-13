@@ -9,6 +9,7 @@ function checkButtonVisibility() {
 
 function getIdRefs() {
   return {
+    bodyRef: document.body,
     loadingSpinnerRef: document.getElementById('loading_spinner'),
     showMoreBtnRef: document.getElementById('show_more_btn'),
     loadingDotsRef: document.getElementById('loading_dots'),
@@ -16,6 +17,7 @@ function getIdRefs() {
     showMoreBtnContainerRef: document.getElementById('show_more_btn_container'),
     dataCouldNotLoadedContainerRef: document.getElementById('data_could_not_loaded_container'),
     dataCouldNotBeLoadedRef: document.getElementById('data_could_not_be_loaded'),
+    loadingOverlayRef: document.getElementById('loading_overlay'),
   };
 }
 

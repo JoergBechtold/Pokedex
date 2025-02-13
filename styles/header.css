@@ -9,6 +9,7 @@ header {
   left: 0;
   display: flex;
   box-shadow: var(--box-shadow);
+  z-index: 999;
 }
 
 .header-content {
