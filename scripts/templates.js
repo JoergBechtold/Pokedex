@@ -1,4 +1,4 @@
-function templateSingleCardHtml(pokeName, pokeNumber, indexPokemonList) {
+function templateSingleCardHtml(pokeName, pokeNumber, pokemonImg, indexPokemonList) {
   return /*html*/ `
         <div id="single_card_${indexPokemonList}" class="single-card">
           <div class="headline-card">
@@ -7,8 +7,8 @@ function templateSingleCardHtml(pokeName, pokeNumber, indexPokemonList) {
           </div>
           <div class="img-card" id="img_card_${indexPokemonList}">
             <img
-              src="${pokemonDetails[indexPokemonList].sprites.other['official-artwork'].front_default}"
-              alt="Bild von ${pokemonDetails[indexPokemonList].name}"
+              src="${pokemonImg[indexPokemonList]}"
+              alt="Bild von ${pokemonImg[indexPokemonList].name}"
               id="pokemon_image_${indexPokemonList}"
             />
           </div>

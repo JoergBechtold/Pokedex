@@ -5,7 +5,6 @@ let pokemonDetails = [];
 let startIndex = 0;
 let endIndex = 40;
 let pokemon = [];
-// let pokemonImg = [];
 
 function initFunction() {
   removeCouldNotLoadetMessage();
@@ -30,7 +29,7 @@ async function renderFirstCards() {
     pokemonImg.push(pokemonDetails[indexPokemonList].sprites.other['official-artwork'].front_default);
     // pokemonImg.push(pokemonDetails[indexPokemonList]);
 
-    showAllCardsContainerRef.innerHTML += templateSingleCardHtml(pokeName, pokeNumber, indexPokemonList);
+    showAllCardsContainerRef.innerHTML += templateSingleCardHtml(pokeName, pokeNumber, pokemonImg, indexPokemonList);
   }
 
   console.log(pokemonImg[1]);
@@ -55,7 +54,7 @@ async function renderMoreCards() {
 
     pokemonImg.push(pokemonDetails[indexMorePokemon].sprites.other['official-artwork'].front_default);
 
-    showAllCardsContainerRef.innerHTML += templateSingleCardHtml(pokeName, pokeNumber, indexMorePokemon);
+    showAllCardsContainerRef.innerHTML += templateSingleCardHtml(pokeName, pokeNumber, pokemonImg, indexMorePokemon);
   }
 }
 
