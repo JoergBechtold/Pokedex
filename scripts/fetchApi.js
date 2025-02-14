@@ -6,6 +6,7 @@ async function fetchPokemonList() {
     fetchPokemonGlobal = await BASE_URL.json();
     pokemonList = fetchPokemonGlobal.results;
 
+    removeCouldNotLoadetMessage();
     renderFirstCards();
     checkButtonVisibility();
   } catch (error) {
@@ -25,6 +26,7 @@ async function fetchPokemonDetails(indexSinglePokemon) {
     let SINGLE_POKEMON_URL = await fetch(pokemonUrl);
     pokemonDetails[indexSinglePokemon] = await SINGLE_POKEMON_URL.json();
 
+    removeCouldNotLoadetMessage();
     checkButtonVisibility();
   } catch (error) {
     loadingOverlayRef.classList.remove('d-flex');

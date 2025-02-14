@@ -30,7 +30,6 @@
 
 .img-card {
   min-height: 345px;
-  /* overflow: hidden; */
   position: relative;
   border-radius: 10px;
   transition: transform 0.3s ease;

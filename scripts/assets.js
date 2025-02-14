@@ -30,3 +30,18 @@ function removeLoadingSpinner() {
   const { loadingSpinnerRef } = getIdRefs();
   loadingSpinnerRef.classList.add('d-none');
 }
+
+function checkIfContainerEmpty() {
+  const { dataCouldNotLoadedContainerRef } = getIdRefs();
+
+  if (dataCouldNotLoadedContainerRef.innerHTML === '') {
+    dataCouldNotLoadedContainerRef.innerHTML += templateDataCouldNotLoadedHtml();
+  }
+}
+
+function removeCouldNotLoadetMessage() {
+  const { dataCouldNotLoadedContainerRef, dataCouldNotBeLoadedRef } = getIdRefs();
+  if (dataCouldNotBeLoadedRef) {
+    dataCouldNotBeLoadedRef.remove();
+  }
+}

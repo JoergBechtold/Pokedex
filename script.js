@@ -1,11 +1,14 @@
 let pokemonList = [];
 let singlePokemonArray = [];
+let pokemonImg = [];
 let pokemonDetails = [];
 let startIndex = 0;
 let endIndex = 40;
 let pokemon = [];
+// let pokemonImg = [];
 
 function initFunction() {
+  removeCouldNotLoadetMessage();
   fetchPokemonList();
 }
 
@@ -13,7 +16,7 @@ async function renderFirstCards() {
   const { showAllCardsContainerRef, showMoreBtnContainerRef } = getIdRefs();
   showMoreBtnContainerRef.classList.add('d-flex');
   showAllCardsContainerRef.innerHTML = '';
-
+  checkIfContainerEmpty();
   let pokeNumber = 0;
 
   for (let indexPokemonList = 0; indexPokemonList < 40; indexPokemonList++) {
@@ -24,8 +27,13 @@ async function renderFirstCards() {
 
     await fetchPokemonDetails(indexPokemonList);
 
+    pokemonImg.push(pokemonDetails[indexPokemonList].sprites.other['official-artwork'].front_default);
+    // pokemonImg.push(pokemonDetails[indexPokemonList]);
+
     showAllCardsContainerRef.innerHTML += templateSingleCardHtml(pokeName, pokeNumber, indexPokemonList);
   }
+
+  console.log(pokemonImg[1]);
 }
 
 async function renderMoreCards() {
@@ -44,6 +52,8 @@ async function renderMoreCards() {
     pokeNumber = indexMorePokemon + 1;
 
     await fetchPokemonDetails(indexMorePokemon);
+
+    pokemonImg.push(pokemonDetails[indexMorePokemon].sprites.other['official-artwork'].front_default);
 
     showAllCardsContainerRef.innerHTML += templateSingleCardHtml(pokeName, pokeNumber, indexMorePokemon);
   }

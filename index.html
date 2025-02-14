@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="styles/fonts.css" />
     <link rel="stylesheet" href="styles/standard.css" />
   </head>
-  <body onload="initFunction()">
+  <body onload="checkIfContainerEmpty(),initFunction()">
     <header>
       <div class="header-content">
         <div class="head-logo">
@@ -54,15 +54,6 @@
 
         <div id="show_all_cards_container" class="show-all-cards-container">
           <!-- render cards here in javascript -->
-
-          <!-- <div id="loading_container" class="loading-container">
-            <div id="loading_spinner" class="loading-spinner">
-              <img src="assets/icons/Poké-Ball-icon.png" alt="Pokeball Icon" />
-              <span>Wird geladen ...</span>
-            </div> -->
-
-          <!-- <span class="data-could-not-be-loaded" id="data_could_not_be_loaded">Pokemon konnten nicht geladen werden...</span> -->
-          <!-- </div> -->
         </div>
 
         <div class="data-could-not-loaded-container" id="data_could_not_loaded_container"></div>
