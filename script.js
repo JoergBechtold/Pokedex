@@ -3,8 +3,11 @@ let singlePokemonArray = [];
 let pokemonImg = [];
 let pokemonDetails = [];
 let startIndex = 0;
-let endIndex = 40;
+let endIndex = 20;
+let numberOfImagesLoaded = 20;
 let pokemon = [];
+let typOne = [];
+let typTwo = [];
 
 function initFunction() {
   removeCouldNotLoadetMessage();
@@ -18,7 +21,7 @@ async function renderFirstCards() {
   checkIfContainerEmpty();
   let pokeNumber = 0;
 
-  for (let indexPokemonList = 0; indexPokemonList < 40; indexPokemonList++) {
+  for (let indexPokemonList = 0; indexPokemonList < numberOfImagesLoaded; indexPokemonList++) {
     singlePokemonArray.push(pokemonList[indexPokemonList]);
 
     pokeName = singlePokemonArray[indexPokemonList].name;
@@ -26,22 +29,19 @@ async function renderFirstCards() {
 
     await fetchPokemonDetails(indexPokemonList);
 
-    pokemonImg.push(pokemonDetails[indexPokemonList].sprites.other['official-artwork'].front_default);
-    // pokemonImg.push(pokemonDetails[indexPokemonList]);
+    pushImg(indexPokemonList);
+    setTypes(indexPokemonList);
 
-    showAllCardsContainerRef.innerHTML += templateSingleCardHtml(pokeName, pokeNumber, pokemonImg, indexPokemonList);
+    showAllCardsContainerRef.innerHTML += templateSingleCardHtml(pokeNumber, indexPokemonList);
+    isTypeAvailable(indexPokemonList);
   }
-
-  console.log(pokemonImg[1]);
 }
 
 async function renderMoreCards() {
   const { showAllCardsContainerRef, showMoreBtnContainerRef } = getIdRefs();
   showMoreBtnContainerRef.classList.add('d-flex');
   startIndex = endIndex;
-  endIndex = endIndex + 40;
-
-  checkButtonVisibility();
+  endIndex = endIndex + numberOfImagesLoaded;
 
   let pokeNumber = 0;
 
@@ -52,9 +52,11 @@ async function renderMoreCards() {
 
     await fetchPokemonDetails(indexMorePokemon);
 
-    pokemonImg.push(pokemonDetails[indexMorePokemon].sprites.other['official-artwork'].front_default);
+    pushImg(indexMorePokemon);
+    setTypes(indexMorePokemon);
 
-    showAllCardsContainerRef.innerHTML += templateSingleCardHtml(pokeName, pokeNumber, pokemonImg, indexMorePokemon);
+    showAllCardsContainerRef.innerHTML += templateSingleCardHtml(pokeNumber, indexMorePokemon);
+    isTypeAvailable(indexMorePokemon);
   }
 }
 
@@ -72,4 +74,34 @@ function removeLoadingOverlay() {
 
 function loadMorePokemon() {
   renderMoreCards();
+}
+
+function setTypes(indexType) {
+  if (pokemonDetails[indexType].types[0]) {
+    typOne.push(pokemonDetails[indexType].types[0].type.name);
+  } else {
+    typOne.push(0);
+  }
+
+  if (pokemonDetails[indexType].types[1]) {
+    typTwo.push(pokemonDetails[indexType].types[1].type.name);
+  } else {
+    typTwo.push(0);
+  }
+}
+
+function isTypeAvailable(indexType) {
+  const { typeOneSpanRef, typeTwoSpanRef } = getIdRefs(indexType);
+
+  if (typOne[indexType] === 0) {
+    typeOneSpanRef.classList.add('d-none');
+  } else {
+    typeOneSpanRef.classList.remove('d-none');
+  }
+
+  if (typTwo[indexType] === 0) {
+    typeTwoSpanRef.classList.add('d-none');
+  } else {
+    typeTwoSpanRef.classList.remove('d-none');
+  }
 }

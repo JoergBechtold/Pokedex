@@ -7,7 +7,7 @@ function checkButtonVisibility() {
   }
 }
 
-function getIdRefs() {
+function getIdRefs(indexType) {
   return {
     bodyRef: document.body,
     loadingSpinnerRef: document.getElementById('loading_spinner'),
@@ -18,6 +18,8 @@ function getIdRefs() {
     dataCouldNotLoadedContainerRef: document.getElementById('data_could_not_loaded_container'),
     dataCouldNotBeLoadedRef: document.getElementById('data_could_not_be_loaded'),
     loadingOverlayRef: document.getElementById('loading_overlay'),
+    typeOneSpanRef: document.getElementById(`type_one_${indexType}`),
+    typeTwoSpanRef: document.getElementById(`type_two_${indexType}`),
   };
 }
 
@@ -40,8 +42,13 @@ function checkIfContainerEmpty() {
 }
 
 function removeCouldNotLoadetMessage() {
-  const { dataCouldNotLoadedContainerRef, dataCouldNotBeLoadedRef } = getIdRefs();
+  const { dataCouldNotBeLoadedRef } = getIdRefs();
   if (dataCouldNotBeLoadedRef) {
     dataCouldNotBeLoadedRef.remove();
   }
+}
+
+function pushImg(imgIndex) {
+  pokemonImg.push(pokemonDetails[imgIndex].sprites.other['home'].front_default);
+  // pokemonImg.push(pokemonDetails[imgIndex].sprites.other['official-artwork'].front_default);
 }

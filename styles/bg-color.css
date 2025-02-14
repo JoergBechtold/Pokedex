@@ -1,0 +1,63 @@
+.bg-fire {
+  background-color: orangered;
+}
+
+.bg-water {
+  background-color: dodgerblue;
+}
+
+.bg-grass {
+  background-color: limegreen;
+}
+
+.bg-bug {
+  background-color: chartreuse;
+}
+
+.bg-flying {
+  background: linear-gradient(to bottom, deepskyblue 50%, darkgray 50%);
+}
+
+.bg-poison {
+  background-color: mediumorchid;
+}
+
+.bg-normal {
+  background-color: lightgray;
+}
+
+.bg-ground {
+  background-color: peru;
+}
+
+.bg-ice {
+  background-color: rgb(247, 249, 249);
+}
+
+.bg-electric {
+  background-color: #ffff00;
+}
+
+.bg-psychic {
+  background-color: hotpink;
+}
+
+.bg-fighting {
+  background-color: darkorange;
+}
+
+.bg-rock {
+  background-color: goldenrod;
+}
+
+.bg-ghost {
+  background-color: darkslateblue;
+}
+
+.bg-steel {
+  background-color: lightsteelblue;
+}
+
+.bg-fairy {
+  background-color: deeppink;
+}
