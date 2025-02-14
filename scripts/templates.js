@@ -1,6 +1,6 @@
 function templateSingleCardHtml(pokeNumber, indexPokemonList) {
   return /*html*/ `
-        <div id="single_card_${indexPokemonList}" class="single-card">
+        <div onclick="openFullScreenPokemonCardOverlay(${indexPokemonList})" id="single_card_${indexPokemonList}" class="single-card">
           <div class="headline-card">
             <span>#${pokeNumber}</span>
             <span class="text-wrap">${pokeName}</span>
@@ -25,5 +25,11 @@ function templateSingleCardHtml(pokeNumber, indexPokemonList) {
 function templateDataCouldNotLoadedHtml() {
   return /*html*/ `
     <span class="data-could-not-be-loaded" id="data_could_not_be_loaded">Pokemon konnten nicht geladen werden...</span> 
+  `;
+}
+
+function templateFullScreenPokemonCardHtml() {
+  return /*html*/ `
+    
   `;
 }

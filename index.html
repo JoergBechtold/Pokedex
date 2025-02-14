@@ -10,12 +10,14 @@
     <script src="scripts/fetchApi.js"></script>
     <script src="scripts/templates.js"></script>
     <script src="scripts/assets.js"></script>
+    <script src="scripts/fullScreenSingleCardOverlay.js"></script>
     <script src="script.js"></script>
 
     <!-- Embedding the favicon -->
     <link rel="icon" href="assets/icons/Poké-Ball-icon.png" type="image/x-icon" />
 
     <!-- Embedding the css -->
+    <link rel="stylesheet" href="styles/fullScreenSingleCardOverlay.css" />
     <link rel="stylesheet" href="styles/singleCard.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="styles/header.css" />
@@ -37,14 +39,13 @@
         </div>
 
         <div class="search">
-          <!-- <img class="search-icon" src="assets/icons/black-search-icon.svg" alt="Lupe" /> -->
           <input class="search-input" type="search" name="Search-input" id="Search_input" placeholder="Pokemon suchen" />
         </div>
       </div>
     </header>
 
     <main>
-      <section class="card-section">
+      <section>
         <div class="loading-overlay" id="loading_overlay">
           <div id="loading_dots" class="loading-dots">
             <div class="dot"></div>
@@ -52,7 +53,20 @@
             <div class="dot"></div>
           </div>
         </div>
+      </section>
 
+      <section>
+        <div onclick="closeFullScreenPokemonCardOverlay()" id="full_screen_pokemon_card_overlay" class="full-screen-pokemon-card-overlay">
+          <div onclick="eventBubbling(event)" id="full_screen_pokemon_card_container" class="full-screen-pokemon-card-container">
+            <div class="close-btn" id="close_btn">
+              <span>hallo</span>
+              <img src="assets/icons/icon-close-50.png" alt="Button zum schließen" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card-section">
         <div id="show_all_cards_container" class="show-all-cards-container">
           <!-- render cards here in javascript -->
         </div>

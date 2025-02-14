@@ -7,7 +7,7 @@
   justify-content: flex-start;
   cursor: pointer;
   border: var(--border-black);
-  min-width: 240px;
+  min-width: 250px;
 }
 
 .headline-card {
@@ -54,12 +54,13 @@
   align-items: center;
   justify-content: space-evenly;
   margin-bottom: 10px;
-  /* gap: 6px; */
+  gap: 6px;
+  padding-inline: 6px;
 }
 
 .type-one,
 .type-two {
-  margin-inline: 6px;
+  /* margin-inline: 6px; */
   text-align: center;
   font-size: var(--span-size-12-16);
   padding: 12px;

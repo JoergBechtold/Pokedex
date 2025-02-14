@@ -20,6 +20,8 @@ function getIdRefs(indexType) {
     loadingOverlayRef: document.getElementById('loading_overlay'),
     typeOneSpanRef: document.getElementById(`type_one_${indexType}`),
     typeTwoSpanRef: document.getElementById(`type_two_${indexType}`),
+    fullScreenPeokemonCardOverlayRef: document.getElementById('full_screen_pokemon_card_overlay'),
+    fullScreenPokemonCardContainerRef: document.getElementById('full_screen_pokemon_card_container'),
   };
 }
 
@@ -50,5 +52,8 @@ function removeCouldNotLoadetMessage() {
 
 function pushImg(imgIndex) {
   pokemonImg.push(pokemonDetails[imgIndex].sprites.other['home'].front_default);
-  // pokemonImg.push(pokemonDetails[imgIndex].sprites.other['official-artwork'].front_default);
+}
+
+function eventBubbling(event) {
+  event.stopPropagation();
 }
