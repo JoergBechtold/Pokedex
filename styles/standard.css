@@ -18,6 +18,13 @@ body {
   position: relative;
 }
 
+.text-wrap {
+  display: block;
+  flex-grow: 1;
+  text-align: center;
+  hyphens: auto;
+}
+
 .d-col {
   display: flex;
   flex-direction: column;

@@ -1,7 +1,7 @@
 function checkButtonVisibility() {
   const { showAllCardsContainerRef, showMoreBtnContainerRef } = getIdRefs();
 
-  if (endIndex >= 120) {
+  if (endIndex >= amountOfLoadedPokemon) {
     showMoreBtnContainerRef.classList.add('d-none');
     showAllCardsContainerRef.classList.add('padding-bottom-50px');
   }
@@ -19,8 +19,8 @@ function getIdRefs() {
     dataCouldNotLoadedContainerRef: document.getElementById('data_could_not_loaded_container'),
     dataCouldNotBeLoadedRef: document.getElementById('data_could_not_be_loaded'),
     loadingOverlayRef: document.getElementById('loading_overlay'),
-    fullScreenCardOverlayRef: document.getElementById('full_screen_card_overlay'),
-    fullScreenCardContainerRef: document.getElementById('full_screen_card_container'),
+    cardOverlayFullScreenRef: document.getElementById('card_overlay_full_screen'),
+    cardContainerFullScreenRef: document.getElementById('card_container_full_screen'),
     searchInputRef: document.getElementById('Search_input'),
     lengthMessageRef: document.getElementById('length_message'),
     errorMessageRef: document.getElementById('error_message'),

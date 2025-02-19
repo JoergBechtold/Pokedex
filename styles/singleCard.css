@@ -21,18 +21,14 @@
   font-size: var(--span-size-headline-card);
 }
 
-.text-wrap {
-  display: block;
-  flex-grow: 1;
-  text-align: center;
-  hyphens: auto;
-}
-
 .img-card {
+  display: flex;
+  align-self: center;
   min-height: 345px;
   position: relative;
   border-radius: 10px;
   transition: transform 0.3s ease;
+  margin-bottom: 15px;
 }
 
 .img-card img {

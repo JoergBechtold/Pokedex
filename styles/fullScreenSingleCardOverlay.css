@@ -1,4 +1,4 @@
-.full-screen-card-overlay {
+.card-overlay-full-screen {
   z-index: 2;
   display: none;
   position: fixed;
@@ -13,18 +13,20 @@
   backdrop-filter: blur(6px);
 }
 
-.full-screen-card-container {
+.card-container-full-screen {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   margin-inline: 70px;
   position: relative;
   max-height: 85%;
+  /* min-height: 400px; */
   max-width: 1175px;
-  min-height: 400px;
-  min-width: 400px;
+  min-width: 1175px;
   border: var(--border-black);
-  background-color: var(--light-gray);
+  /* background-color: var(--light-gray); */
+  background-color: white;
+
   border-radius: var(--border-radius-16px);
   box-shadow: var(--box-shadow-big);
 }
@@ -35,18 +37,100 @@
   background-color: var(--secondary);
   top: 16px;
   right: 16px;
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   align-items: center;
   justify-content: center;
   width: 45px;
   aspect-ratio: 1 / 1;
   cursor: pointer;
+  border: var(--border-black);
+}
+
+.close-btn:hover {
+  background-color: var(--secondary-hover);
 }
 
 .close-btn img {
   width: 100%;
 }
 
-.test-card {
+.content-full-screen {
+  /* padding: 15px; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headline-container-full-screen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+.headline-number-full-screen,
+.headline-name-full-screen span {
+  font-size: var(--span-size-20-30);
+}
+
+.headline-name-full-screen {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.headline-name-full-screen span {
+}
+
+.headline-name-full-screen img {
+}
+
+.img-full-screen {
+  background-color: var(--light-gray);
+  width: 415px;
+  aspect-ratio: 1 / 1;
+}
+
+.img-full-screen img {
+  width: 100%;
+}
+
+.information-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--light-gray);
+}
+
+.information-table {
+  background-color: #4db5e6;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  color: white; /* Weiße Schriftfarbe */
+}
+
+th {
+  font-weight: bold;
+}
+
+.question-mark {
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  padding: 2px 6px;
+  margin-left: 5px;
+  font-size: 12px;
 }
