@@ -2,12 +2,17 @@ async function fetchPokemonList() {
   const { showMoreBtnContainerRef, dataCouldNotLoadedContainerRef, loadingOverlayRef } = getIdRefs();
   showLoadingOverlay();
   try {
-    let BASE_URL = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=120&offset=0`);
+    const BASE_URL = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=120&offset=0`);
     fetchPokemonGlobal = await BASE_URL.json();
     pokemonList = fetchPokemonGlobal.results;
 
+    pokemonList = fetchPokemonGlobal.results.map((pokemon) => ({
+      ...pokemon,
+      number: parseInt(pokemon.url.split('/').reverse()[1]),
+    }));
+
     removeCouldNotLoadetMessage();
-    renderFirstCards();
+    renderCards();
     checkButtonVisibility();
   } catch (error) {
     loadingOverlayRef.classList.remove('d-flex');

@@ -38,8 +38,27 @@
           </a>
         </div>
 
-        <div class="search">
-          <input class="search-input" type="search" name="Search-input" id="Search_input" placeholder="Pokemon suchen" />
+        <div class="search-container">
+          <p id="error_message" class="error-message">Nur Buchstaben erlaubt!</p>
+          <p id="length_message" class="length-message">Mindestens 3 Buchstaben eingeben!</p>
+
+          <div class="search">
+            <form>
+              <input
+                minlength="3"
+                oninput="validateSearchInput()"
+                class="search-input"
+                type="text"
+                name="Search-input"
+                id="Search_input"
+                pattern="[a-zA-Z]+"
+                placeholder="Pokemon suchen"
+                onblur="hideErrorMessages()"
+                inputmode="text"
+                required
+              />
+            </form>
+          </div>
         </div>
       </div>
     </header>
@@ -56,11 +75,11 @@
       </section>
 
       <section>
-        <div onclick="closeFullScreenPokemonCardOverlay()" id="full_screen_pokemon_card_overlay" class="full-screen-pokemon-card-overlay">
-          <div onclick="eventBubbling(event)" id="full_screen_pokemon_card_container" class="full-screen-pokemon-card-container">
+        <div onclick="closeFullScreenCardOverlay()" id="full_screen_card_overlay" class="full-screen-card-overlay">
+          <div onclick="eventBubbling(event)" id="full_screen_card_container" class="full-screen-card-container">
             <div class="close-btn" id="close_btn">
-              <span>hallo</span>
-              <img src="assets/icons/icon-close-50.png" alt="Button zum schließen" />
+              <!-- <img src="assets/icons/icon-close-50.png" alt="Button zum schließen" /> -->
+              <h1>hallo</h1>
             </div>
           </div>
         </div>
@@ -72,6 +91,7 @@
         </div>
 
         <div class="data-could-not-loaded-container" id="data_could_not_loaded_container"></div>
+        <div class="pokemon-could-not-found-container" id="pokemon_could_not_found_container"></div>
 
         <div id="show_more_btn_container" class="show-more-btn-container">
           <button id="show_more_btn" onclick="loadMorePokemon()" class="show-more-btn">Zeige mir mehr</button>

@@ -37,7 +37,7 @@ body {
 }
 
 .padding-bottom-50px {
-  padding-bottom: 50px;
+  padding-bottom: 55px;
 }
 
 .no-scroll {
@@ -48,22 +48,13 @@ a {
   text-decoration: none;
 }
 
-/* color for Pokemon */
-.grass {
-  background-color: green;
-}
-
-.fire {
-  background-color: red;
-}
-
-.water {
-  background-color: blue;
+.padding-right {
+  padding-right: var(--scrollbar-width);
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: var(--scrollbar-width);
 }
 
 /* Track */

@@ -42,6 +42,15 @@
   left: 25%;
 }
 
+.pokemon-could-not-found-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 45%;
+  left: 25%;
+}
+
 .data-could-not-be-loaded {
   font-size: var(--span-size-20-30);
 }

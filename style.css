@@ -7,6 +7,7 @@
   /* -sizes */
   --header-height: 100px;
   --footer-height: 250px;
+  --scrollbar-width: 10px;
   --h1-size-header: clamp(18px, 14.5217px + 1.087vw, 28px);
   --h2-size-footer: clamp(16px, 12.5217px + 1.087vw, 26px);
   --a-size-footer: clamp(10px, 8.6087px + 0.4348vw, 14px);
@@ -14,6 +15,7 @@
   --span-size-headline-card: clamp(17px, 14.913px + 0.6522vw, 23px);
   --span-size-12-16: clamp(12px, 10.6087px + 0.4348vw, 16px);
   --span-size-20-30: clamp(20px, 16.5217px + 1.087vw, 30px);
+  --p-size-11-14: clamp(0.6875rem, 0.6223rem + 0.3261vw, 0.875rem);
   --sozial-media-icons-height-footer: clamp(40px, 34.7826px + 1.6304vw, 55px);
   --sozial-media-icons-width-footer: clamp(40px, 34.7826px + 1.6304vw, 55px);
   --header-logo: clamp(35px, 22.8261px + 3.8043vw, 70px);
@@ -22,8 +24,6 @@
   /* color */
   --footer-gray: #1f1f1f;
   --light-gray: #e8e8e8;
-
-  /* --secondary: #fad08d; */
   --secondary: #ffcc03;
   --secondary-hover: #f9dc68;
   /* --secondary-hover: #ffebcd; */

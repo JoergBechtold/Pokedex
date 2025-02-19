@@ -1,5 +1,5 @@
-.full-screen-pokemon-card-overlay {
-  z-index: 1000;
+.full-screen-card-overlay {
+  z-index: 2;
   display: none;
   position: fixed;
   border-radius: var(--border-radius-16px);
@@ -13,11 +13,14 @@
   backdrop-filter: blur(6px);
 }
 
-.full-screen-pokemon-card-container {
+.full-screen-card-container {
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-inline: 70px;
-  overflow-y: auto;
-  position: relative;
-  /* height: minmax(400px, 85%); */
+  /* overflow-y: auto; */
+  /* position: relative; */
   max-height: 85%;
   max-width: 1175px;
   min-height: 400px;
@@ -26,13 +29,15 @@
   background-color: var(--light-gray);
   border-radius: var(--border-radius-16px);
   box-shadow: var(--box-shadow-big);
-  /* margin-inline: var(--margin-10percent); */
-  /* margin-block: var(--margin-35px); */
 }
 
 .close-btn {
-  z-index: 1001;
-  position: absolute;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* z-index: 1000; */
+  /* position: absolute; */
   top: 25px;
   right: 25px;
   width: 35px;

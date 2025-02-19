@@ -1,9 +1,11 @@
 let pokemonList = [];
+let searchPokemonArray = [];
+let searchPokemonList = [];
 let singlePokemonArray = [];
 let pokemonImg = [];
 let pokemonDetails = [];
 let startIndex = 0;
-let endIndex = 20;
+// let endIndex = 20;
 let numberOfImagesLoaded = 20;
 let pokemon = [];
 let typOne = [];
@@ -14,49 +16,25 @@ function initFunction() {
   fetchPokemonList();
 }
 
-async function renderFirstCards() {
+async function renderCards() {
   const { showAllCardsContainerRef, showMoreBtnContainerRef } = getIdRefs();
   showMoreBtnContainerRef.classList.add('d-flex');
-  showAllCardsContainerRef.innerHTML = '';
+  // showAllCardsContainerRef.innerHTML = '';
   checkIfContainerEmpty();
-  let pokeNumber = 0;
+  // singlePokemonArray = [];
 
-  for (let indexPokemonList = 0; indexPokemonList < numberOfImagesLoaded; indexPokemonList++) {
+  for (let indexPokemonList = startIndex; indexPokemonList < numberOfImagesLoaded; indexPokemonList++) {
     singlePokemonArray.push(pokemonList[indexPokemonList]);
 
     pokeName = singlePokemonArray[indexPokemonList].name;
-    pokeNumber = indexPokemonList + 1;
+    pokeNumber = singlePokemonArray[indexPokemonList].number;
 
     await fetchPokemonDetails(indexPokemonList);
 
-    pushImg(indexPokemonList);
     setTypes(indexPokemonList);
 
     showAllCardsContainerRef.innerHTML += templateSingleCardHtml(pokeNumber, indexPokemonList);
     isTypeAvailable(indexPokemonList);
-  }
-}
-
-async function renderMoreCards() {
-  const { showAllCardsContainerRef, showMoreBtnContainerRef } = getIdRefs();
-  showMoreBtnContainerRef.classList.add('d-flex');
-  startIndex = endIndex;
-  endIndex = endIndex + numberOfImagesLoaded;
-
-  let pokeNumber = 0;
-
-  for (let indexMorePokemon = startIndex; indexMorePokemon < endIndex; indexMorePokemon++) {
-    singlePokemonArray.push(pokemonList[indexMorePokemon]);
-    pokeName = singlePokemonArray[indexMorePokemon].name;
-    pokeNumber = indexMorePokemon + 1;
-
-    await fetchPokemonDetails(indexMorePokemon);
-
-    pushImg(indexMorePokemon);
-    setTypes(indexMorePokemon);
-
-    showAllCardsContainerRef.innerHTML += templateSingleCardHtml(pokeNumber, indexMorePokemon);
-    isTypeAvailable(indexMorePokemon);
   }
 }
 
@@ -73,7 +51,9 @@ function removeLoadingOverlay() {
 }
 
 function loadMorePokemon() {
-  renderMoreCards();
+  numberOfImagesLoaded += 20;
+  startIndex += 20;
+  renderCards();
 }
 
 function setTypes(indexType) {
@@ -104,4 +84,64 @@ function isTypeAvailable(indexType) {
   } else {
     typeTwoSpanRef.classList.remove('d-none');
   }
+}
+
+function validateSearchInput() {
+  const { searchInputRef, dataCouldNotLoadedContainerRef, lengthMessageRef, pokemonCouldNotFoundContainerRef } = getIdRefs();
+  let inputValue = searchInputRef.value;
+
+  try {
+    inputValue = inputValue.replace(/[^a-zA-Z]/g, '');
+    searchInputRef.value = inputValue;
+
+    if (inputValue.length === 0) {
+      lengthMessageRef.classList.add('d-flex');
+      pokemonCouldNotFoundContainerRef.innerHTML = ``;
+      fetchPokemonList();
+    } else if (inputValue.length < 3) {
+      lengthMessageRef.classList.add('d-flex');
+      pokemonCouldNotFoundContainerRef.innerHTML = '';
+    } else {
+      hideErrorMessages();
+      searchPokemon(inputValue);
+    }
+  } catch (error) {
+    console.error('Fehler in validateSearchInput:', error);
+  }
+}
+
+function searchPokemon(inputValue) {
+  const { searchInputRef, showAllCardsContainerRef, showMoreBtnContainerRef, pokemonCouldNotFoundContainerRef } = getIdRefs();
+
+  inputValue = inputValue.toLowerCase();
+  showMoreBtnContainerRef.classList.add('d-none');
+  showAllCardsContainerRef.classList.add('padding-bottom-50px');
+  showAllCardsContainerRef.innerHTML = '';
+
+  let searchPokemonResults = pokemonList.filter((pokemon) => {
+    return pokemon.name.includes(inputValue);
+  });
+
+  pokemonList = searchPokemonResults;
+
+  if (pokemonList.length === 0) {
+    pokemonCouldNotFoundContainerRef.innerHTML = templatePokemonCouldNotFoundHtml();
+    showAllCardsContainerRef.innerHTML = '';
+  } else {
+    pokemonCouldNotFoundContainerRef.innerHTML = '';
+  }
+  showMoreBtnContainerRef.classList.add('d-none');
+
+  renderCards();
+}
+
+function clearSearch() {
+  const { searchInputRef } = getIdRefs();
+  searchInputRef.value = '';
+}
+
+function hideErrorMessages() {
+  const { errorMessageRef, lengthMessageRef } = getIdRefs();
+  errorMessageRef.classList.remove('d-flex');
+  lengthMessageRef.classList.remove('d-flex');
 }
