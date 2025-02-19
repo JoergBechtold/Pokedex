@@ -14,13 +14,11 @@
 }
 
 .full-screen-card-container {
-  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-inline: 70px;
-  /* overflow-y: auto; */
-  /* position: relative; */
+  position: relative;
   max-height: 85%;
   max-width: 1175px;
   min-height: 400px;
@@ -32,19 +30,23 @@
 }
 
 .close-btn {
-  z-index: 8;
+  border-radius: var(--border-radius-10px);
+  padding: 4px;
+  background-color: var(--secondary);
+  top: 16px;
+  right: 16px;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* z-index: 1000; */
-  /* position: absolute; */
-  top: 25px;
-  right: 25px;
-  width: 35px;
+  width: 45px;
   aspect-ratio: 1 / 1;
-  background-color: aqua;
+  cursor: pointer;
 }
+
 .close-btn img {
   width: 100%;
-  cursor: pointer;
+}
+
+.test-card {
 }

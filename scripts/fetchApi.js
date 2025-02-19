@@ -4,9 +4,9 @@ async function fetchPokemonList() {
   try {
     const BASE_URL = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=120&offset=0`);
     fetchPokemonGlobal = await BASE_URL.json();
-    pokemonList = fetchPokemonGlobal.results;
+    AllPokemon = fetchPokemonGlobal.results;
 
-    pokemonList = fetchPokemonGlobal.results.map((pokemon) => ({
+    AllPokemon = fetchPokemonGlobal.results.map((pokemon) => ({
       ...pokemon,
       number: parseInt(pokemon.url.split('/').reverse()[1]),
     }));

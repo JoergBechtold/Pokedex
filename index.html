@@ -45,17 +45,14 @@
           <div class="search">
             <form>
               <input
-                minlength="3"
                 oninput="validateSearchInput()"
                 class="search-input"
                 type="text"
                 name="Search-input"
                 id="Search_input"
-                pattern="[a-zA-Z]+"
                 placeholder="Pokemon suchen"
                 onblur="hideErrorMessages()"
                 inputmode="text"
-                required
               />
             </form>
           </div>
@@ -76,10 +73,13 @@
 
       <section>
         <div onclick="closeFullScreenCardOverlay()" id="full_screen_card_overlay" class="full-screen-card-overlay">
-          <div onclick="eventBubbling(event)" id="full_screen_card_container" class="full-screen-card-container">
-            <div class="close-btn" id="close_btn">
-              <!-- <img src="assets/icons/icon-close-50.png" alt="Button zum schließen" /> -->
-              <h1>hallo</h1>
+          <!-- show overlay card with javascript -->
+          <div onclick="eventBubbling(event)" class="full-screen-card-container">
+            <div class="close-btn">
+              <img onclick="closeFullScreenCardOverlay()" src="assets/icons/icon-close-50.png" alt="Button zum schließen" />
+            </div>
+            <div class="full-screen-content">
+              <div class="headline-"></div>
             </div>
           </div>
         </div>
@@ -88,6 +88,10 @@
       <section class="card-section">
         <div id="show_all_cards_container" class="show-all-cards-container">
           <!-- render cards here in javascript -->
+        </div>
+
+        <div id="search_all_cards_container" class="search-all-cards-container">
+          <!-- render search cards here in javascript -->
         </div>
 
         <div class="data-could-not-loaded-container" id="data_could_not_loaded_container"></div>

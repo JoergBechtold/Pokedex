@@ -1,4 +1,4 @@
-function templateSingleCardHtml(pokeNumber, indexPokemonList) {
+function templateSingleCardHtml(indexPokemonList) {
   return /*html*/ `
         <div onclick="openFullScreenCardOverlay(${indexPokemonList})" id="single_card_${indexPokemonList}" class="single-card">
           <div class="headline-card">
