@@ -47,3 +47,28 @@ async function fetchPokemonDetails(indexSinglePokemon) {
   }
   removeLoadingOverlay();
 }
+
+async function fetchSpeciesText(indexSinglePokemon) {
+  const { showMoreBtnContainerRef, dataCouldNotLoadedContainerRef, showAllCardsContainerRef, loadingOverlayRef, cardOverlayFullScreenRef } =
+    getIdRefs();
+  const isLoadingOverlayActive = loadingOverlayRef.classList.contains('d-flex');
+  if (!isLoadingOverlayActive) {
+    showLoadingOverlay();
+  }
+
+  try {
+    let speciesTextUrl = pokemonDetails[indexSinglePokemon].species.url;
+    let SPECIES_TEXT_URL = await fetch(speciesTextUrl);
+    speciesText[indexSinglePokemon] = await SPECIES_TEXT_URL.json();
+
+    removeCouldNotLoadetMessage();
+    checkButtonVisibility();
+  } catch (error) {
+    loadingOverlayRef.classList.remove('d-flex');
+    showAllCardsContainerRef.classList.add('d-none');
+    showMoreBtnContainerRef.classList.add('d-none');
+    dataCouldNotLoadedContainerRef.innerHTML += templateDataCouldNotLoadedHtml();
+    console.error(error);
+  }
+  removeLoadingOverlay();
+}

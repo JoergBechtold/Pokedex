@@ -43,7 +43,7 @@ function templateFullScreenCardHtml(indexPokemonList) {
   let typeTwoHtml = '';
 
   if (pokemonDetails[indexPokemonList].types.length > 1) {
-    typeTwoHtml = /*html*/ `<span class="type-two width-100 bg-${pokemonDetails[indexPokemonList].types[1].type.name}" id="type_two_${indexPokemonList}">${pokemonDetails[indexPokemonList].types[1].type.name}</span>`;
+    typeTwoHtml = /*html*/ `<span class="type-two  bg-${pokemonDetails[indexPokemonList].types[1].type.name}" id="type_two_${indexPokemonList}">${pokemonDetails[indexPokemonList].types[1].type.name}</span>`;
   }
 
   return /*html*/ `
@@ -75,20 +75,31 @@ function templateFullScreenCardHtml(indexPokemonList) {
           </div>
 
           <div id="characteristics_container_overlay_${indexPokemonList}" class="characteristics-container-overlay">
-            <span class="characteristics-hedline">Typ</span>
-            <div class="characteristics-type-container">
-              <span class="type-one width-100 bg-${pokemonDetails[indexPokemonList].types[0].type.name}" id="type_one_overlay_${indexPokemonList}">${pokemonDetails[indexPokemonList].types[0].type.name}</span>
-              ${typeTwoHtml} 
+             <div class="characteristics">
+               <span class="characteristics-hedline">Typ</span>
+               <div class="characteristics-type-container">
+                 <span class="type-one  bg-${pokemonDetails[indexPokemonList].types[0].type.name}" id="type_one_overlay_${indexPokemonList}"
+                   >${pokemonDetails[indexPokemonList].types[0].type.name}</span
+                 >
+                 ${typeTwoHtml}
+               </div>
+             </div>
+     
+             <!-- <div class="weaknesses">
+               <span class="weaknesses-hedline">Schwächen</span>
+               <div class="weaknesses-type-container">
+                 <span class="type-one  bg-${pokemonDetails[indexPokemonList].types[0].type.name}" id="type_one_overlay_${indexPokemonList}"
+                   >${pokemonDetails[indexPokemonList].types[0].type.name}</span
+                 >
+                 ${typeTwoHtml}
+               </div>
+             </div> -->
            </div>
-          </div>
 
 
 
             <div id="information_text" class="information-text">
-              <span
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, mollitia doloremque eum voluptates rerum possimus, tempora et repellat
-                ratione magnam ad nesciunt voluptatum dolorem, cum sapiente provident laboriosam fuga aperiam.</span
-              >
+              <span>${speciesText[indexPokemonList].flavor_text_entries[25]['flavor_text']}</span>
             </div>
             <div id="infomration_table" class="information-table">
               <table>
@@ -98,14 +109,14 @@ function templateFullScreenCardHtml(indexPokemonList) {
                 </tr>
                 <tr>
                   <td>${heigtNumber}  m</td>
-                  <td>Samen</td>
+                  <td>${speciesText[indexPokemonList].genera[4].genus}</td>
                 </tr>
                 <tr>
                   <th>Gewicht</th>
                   <th>Fähigkeiten</th>
                 </tr>
                 <tr>
-                  <td>${pokemonDetails[indexPokemonList].weight} kg</td>
+                  <td>${weightNumber} kg</td>
                   <td>Notdünger <span class="question-mark">?</span></td>
                 </tr>
                
