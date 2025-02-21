@@ -25,6 +25,8 @@ function getIdRefs() {
     lengthMessageRef: document.getElementById('length_message'),
     errorMessageRef: document.getElementById('error_message'),
     pokemonCouldNotFoundContainerRef: document.getElementById('pokemon_could_not_found_container'),
+    btnLeftRef: document.getElementById('btn_left'),
+    btnRightRef: document.getElementById('btn_right'),
   };
 }
 

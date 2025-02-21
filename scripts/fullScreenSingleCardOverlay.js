@@ -1,11 +1,23 @@
-function openFullScreenCardOverlay(indexPokemonList) {
-  const { bodyRef, cardOverlayFullScreenRef, cardContainerFullScreenRef } = getIdRefs();
+async function openFullScreenCardOverlay(indexPokemonList) {
+  const { bodyRef, cardOverlayFullScreenRef, loadingOverlayRef } = getIdRefs();
+  const isLoadingOverlayActive = loadingOverlayRef.classList.contains('d-flex');
+
+  if (!isLoadingOverlayActive) {
+    showLoadingOverlay();
+  }
 
   cardOverlayFullScreenRef.classList.add('d-flex');
   bodyRef.classList.add('no-scroll');
   bodyRef.classList.add('padding-right');
+
+  setTypes(indexPokemonList);
+
   cardOverlayFullScreenRef.innerHTML = '';
   cardOverlayFullScreenRef.innerHTML += templateFullScreenCardHtml(indexPokemonList);
+  isTypeAvailable(indexPokemonList);
+  checkPokemonNumber(indexPokemonList);
+
+  removeLoadingOverlay();
 }
 
 function closeFullScreenCardOverlay() {

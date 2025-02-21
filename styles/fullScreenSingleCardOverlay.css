@@ -16,17 +16,21 @@
 .card-container-full-screen {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  overflow: auto;
   margin-inline: 70px;
   position: relative;
-  max-height: 85%;
-  /* min-height: 400px; */
-  max-width: 1175px;
+  height: 90%;
+  max-width: 1350px;
   min-width: 1175px;
-  border: var(--border-black);
-  /* background-color: var(--light-gray); */
-  background-color: white;
+  /* display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'headline-container'
+    'information-container'
+    'btn-container'; */
 
+  border: var(--border-black);
+  background-color: white;
   border-radius: var(--border-radius-16px);
   box-shadow: var(--box-shadow-big);
 }
@@ -56,19 +60,29 @@
 }
 
 .content-full-screen {
-  /* padding: 15px; */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
+  display: grid;
+  grid-template-rows: 90px 1fr 90px;
+  grid-template-areas:
+    'headline-container'
+    'information-container'
+    'btn-container';
+  /* min-height: 100%; */
+  /* width: 100%; */
+  /* display: grid; */
+  /* flex-direction: column;
+  align-items: center; */
 }
 
 .headline-container-full-screen {
+  height: 90px;
+  grid-area: headline-container;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding-bottom: 15px;
+  /* padding-bottom: 15px; */
+  padding: var(--padding-15px);
 }
 
 .headline-number-full-screen,
@@ -99,13 +113,83 @@
 }
 
 .information-container {
+  grid-area: information-container;
+  background-color: var(--light-gray);
+  padding-inline: var(--padding-15px);
+  position: relative;
+  display: grid;
+  grid-template-columns: 45% 50%;
+  column-gap: 5%;
+  grid-template-rows: 100%;
+  grid-template-areas:
+    'img-container right-container'
+    'img-container right-container';
+  width: 100%;
+  /* min-height: 100%; */
+}
+
+.information-right-content {
+  grid-area: right-container;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  gap: 25px;
+  /* padding-bottom: var(--padding-15px); */
+}
+
+.information-img-container {
   display: flex;
   align-items: center;
-  background-color: var(--light-gray);
+  justify-content: center;
+  height: 100%;
+  /* height: 450px; */
+  /* max-width: 100%;
+  min-width: 100%; */
+  /* aspect-ratio: 1/1; */
+}
+
+.information-img-container img {
+  display: block;
+  object-fit: contain;
+  /* height: 100%; */
+}
+
+.gif-container {
+  padding-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.characteristics-container-overlay {
+  min-height: 130px;
+  max-height: 130px;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.characteristics-type-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.information-text {
+  display: flex;
+  height: fit-content;
+  align-items: end;
 }
 
 .information-table {
-  background-color: #4db5e6;
+  grid-area: table-container;
+  background-color: var(--blue);
   padding: 20px;
   border-radius: 10px;
 }
@@ -119,18 +203,60 @@ th,
 td {
   padding: 10px;
   text-align: left;
-  color: white; /* Weiße Schriftfarbe */
+  color: black;
 }
 
 th {
   font-weight: bold;
 }
 
-.question-mark {
-  background-color: white;
-  color: black;
-  border-radius: 50%;
-  padding: 2px 6px;
-  margin-left: 5px;
-  font-size: 12px;
+.btn-container {
+  grid-area: btn-container;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  /* grid-area: btn-container; */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  background-color: var(--light-gray);
+  padding-bottom: var(--padding-15px);
+  padding-top: var(--padding-15px);
+}
+
+.btn-content-left,
+.btn-content-right {
+  width: 80px;
+}
+
+.btn-left,
+.btn-right {
+  font-size: var(--span-size-12-16);
+  border-radius: var(--border-radius-10px);
+  background-color: var(--secondary);
+  cursor: pointer;
+  padding: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-left:hover,
+.btn-right:hover {
+  background-color: var(--secondary-hover);
+}
+
+.btn-left img,
+.btn-right img {
+  object-fit: cover;
+  aspect-ratio: 2/1;
+  width: 100%;
+}
+
+.btn-right {
+  transform: rotate(180deg);
 }

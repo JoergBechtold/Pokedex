@@ -20,12 +20,17 @@ async function fetchPokemonList() {
     dataCouldNotLoadedContainerRef.innerHTML += templateDataCouldNotLoadedHtml();
     console.error(error);
   }
-  // removeLoadingOverlay();
+  removeLoadingOverlay();
 }
 
 async function fetchPokemonDetails(indexSinglePokemon) {
-  const { showMoreBtnContainerRef, dataCouldNotLoadedContainerRef, showAllCardsContainerRef, loadingOverlayRef } = getIdRefs();
-  showLoadingOverlay();
+  const { showMoreBtnContainerRef, dataCouldNotLoadedContainerRef, showAllCardsContainerRef, loadingOverlayRef, cardOverlayFullScreenRef } =
+    getIdRefs();
+  const isLoadingOverlayActive = loadingOverlayRef.classList.contains('d-flex');
+  if (!isLoadingOverlayActive) {
+    showLoadingOverlay();
+  }
+
   try {
     let pokemonUrl = singlePokemonArray[indexSinglePokemon].url;
     let SINGLE_POKEMON_URL = await fetch(pokemonUrl);
