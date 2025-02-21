@@ -1,4 +1,10 @@
 function templateSingleCardHtml(indexPokemonList) {
+  let typeTwoHtml = '';
+
+  if (pokemonDetails[indexPokemonList].types.length > 1) {
+    typeTwoHtml = /*html*/ `<span class="type-two bg-${pokemonDetails[indexPokemonList].types[1].type.name}" id="type_two_${indexPokemonList}">${pokemonDetails[indexPokemonList].types[1].type.name}</span>`;
+  }
+
   return /*html*/ `
         <div onclick="openFullScreenCardOverlay(${indexPokemonList})" id="single_card_${indexPokemonList}" class="single-card">
           <div class="headline-card">
@@ -13,8 +19,9 @@ function templateSingleCardHtml(indexPokemonList) {
             />
           </div>
           <div id="characteristics_container_${indexPokemonList}" class="characteristics-container">
-           <span class="type-one bg-${typOne[indexPokemonList]}" id="type_one_${indexPokemonList}">${typOne[indexPokemonList]}</span>
-           <span class="type-two bg-${typTwo[indexPokemonList]}" id="type_two_${indexPokemonList}">${typTwo[indexPokemonList]}</span>
+           <span class="type-one bg-${pokemonDetails[indexPokemonList].types[0].type.name}" id="type_one_${indexPokemonList}">${pokemonDetails[indexPokemonList].types[0].type.name}</span>
+           ${typeTwoHtml} 
+          
           </div>
         </div>
     `;
@@ -33,6 +40,12 @@ function templatePokemonCouldNotFoundHtml() {
 }
 
 function templateFullScreenCardHtml(indexPokemonList) {
+  let typeTwoHtml = '';
+
+  if (pokemonDetails[indexPokemonList].types.length > 1) {
+    typeTwoHtml = /*html*/ `<span class="type-two width-100 bg-${pokemonDetails[indexPokemonList].types[1].type.name}" id="type_two_${indexPokemonList}">${pokemonDetails[indexPokemonList].types[1].type.name}</span>`;
+  }
+
   return /*html*/ `
    <div onclick="eventBubbling(event)" class="card-container-full-screen">
       <div id="content_full_screen_${indexPokemonList}" class="content-full-screen">
@@ -64,8 +77,8 @@ function templateFullScreenCardHtml(indexPokemonList) {
           <div id="characteristics_container_overlay_${indexPokemonList}" class="characteristics-container-overlay">
             <span class="characteristics-hedline">Typ</span>
             <div class="characteristics-type-container">
-              <span class="type-one width-100 bg-${typOne[indexPokemonList]}" id="type_one_overlay_${indexPokemonList}">${typOne[indexPokemonList]}</span>
-              <span class="type-two width-100 bg-${typTwo[indexPokemonList]}" id="type_two_overlay_${indexPokemonList}">${typTwo[indexPokemonList]}</span>
+              <span class="type-one width-100 bg-${pokemonDetails[indexPokemonList].types[0].type.name}" id="type_one_overlay_${indexPokemonList}">${pokemonDetails[indexPokemonList].types[0].type.name}</span>
+              ${typeTwoHtml} 
            </div>
           </div>
 
@@ -84,7 +97,7 @@ function templateFullScreenCardHtml(indexPokemonList) {
                   <th>Kategorie</th>
                 </tr>
                 <tr>
-                  <td>0,7 m</td>
+                  <td>${heigtNumber}  m</td>
                   <td>Samen</td>
                 </tr>
                 <tr>
@@ -92,7 +105,7 @@ function templateFullScreenCardHtml(indexPokemonList) {
                   <th>Fähigkeiten</th>
                 </tr>
                 <tr>
-                  <td>6,9 kg</td>
+                  <td>${pokemonDetails[indexPokemonList].weight} kg</td>
                   <td>Notdünger <span class="question-mark">?</span></td>
                 </tr>
                

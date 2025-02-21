@@ -135,7 +135,7 @@
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-  gap: 25px;
+  gap: 35px;
   /* padding-bottom: var(--padding-15px); */
 }
 
@@ -157,7 +157,7 @@
 }
 
 .gif-container {
-  padding-top: 35px;
+  /* padding-top: 35px; */
   display: flex;
   justify-content: center;
 }

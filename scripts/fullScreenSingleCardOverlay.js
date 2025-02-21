@@ -10,11 +10,10 @@ async function openFullScreenCardOverlay(indexPokemonList) {
   bodyRef.classList.add('no-scroll');
   bodyRef.classList.add('padding-right');
 
-  setTypes(indexPokemonList);
+  setHeight(indexPokemonList);
 
   cardOverlayFullScreenRef.innerHTML = '';
   cardOverlayFullScreenRef.innerHTML += templateFullScreenCardHtml(indexPokemonList);
-  isTypeAvailable(indexPokemonList);
   checkPokemonNumber(indexPokemonList);
 
   removeLoadingOverlay();
