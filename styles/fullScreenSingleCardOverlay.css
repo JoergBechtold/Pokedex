@@ -20,8 +20,9 @@
   margin-inline: 70px;
   position: relative;
   height: 90%;
-  width: 1350px;
-  /* min-width: 1175px; */
+  width: 85%;
+  /* width: 1350px; */
+  max-width: 1175px;
   /* display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:

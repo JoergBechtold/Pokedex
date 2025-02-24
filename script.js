@@ -9,6 +9,7 @@ let endIndex = 20;
 let pokemon = [];
 let heigtNumber = 0;
 let weightNumber = 0;
+let germanSpeciesText = '';
 
 function initFunction() {
   removeCouldNotLoadetMessage();
@@ -16,8 +17,7 @@ function initFunction() {
 }
 
 async function renderCards(parameter = false) {
-  const { showAllCardsContainerRef, showMoreBtnContainerRef, cardOverlayFullScreenRef, btnRightRef, btnLeftRef } = getIdRefs();
-  const isOverlayActive = cardOverlayFullScreenRef.classList.contains('d-flex');
+  const { showAllCardsContainerRef, showMoreBtnContainerRef } = getIdRefs();
 
   if (parameter) {
     showMoreBtnContainerRef.classList.add('d-none');
@@ -30,6 +30,7 @@ async function renderCards(parameter = false) {
 
   checkIfContainerEmpty();
 
+  // auslagern for loob??
   for (let indexPokemonList = startIndex; indexPokemonList < endIndex; indexPokemonList++) {
     let singlePokemon = '';
 
@@ -42,14 +43,21 @@ async function renderCards(parameter = false) {
 
     await fetchPokemonDetails(indexPokemonList);
     await fetchSpeciesText(indexPokemonList);
-
     showAllCardsContainerRef.innerHTML += templateSingleCardHtml(indexPokemonList);
   }
 }
 
 function showLoadingOverlay() {
-  const { loadingOverlayRef, bodyRef } = getIdRefs();
+  const { loadingOverlayRef } = getIdRefs();
   loadingOverlayRef.classList.add('d-flex');
+}
+
+function showLoadingError(error) {
+  loadingOverlayRef.classList.remove('d-flex');
+  showAllCardsContainerRef.classList.add('d-none');
+  showMoreBtnContainerRef.classList.add('d-none');
+  dataCouldNotLoadedContainerRef.innerHTML += templateDataCouldNotLoadedHtml();
+  console.error(error);
 }
 
 function removeLoadingOverlay() {
@@ -69,16 +77,6 @@ function formatPokemonDimension(element) {
   elementNumber = (setElement / 10).toFixed(1).replace('.', ',');
   return elementNumber;
 }
-
-// function setHeight(indexPokemonList) {
-//   let height = pokemonDetails[indexPokemonList].height;
-//   heigtNumber = (height / 10).toFixed(1).replace('.', ',');
-// }
-
-// function setWeight(indexPokemonList) {
-//   let weight = pokemonDetails[indexPokemonList].weight;
-//   weightNumber = (weight / 10).toFixed(1).replace('.', ',');
-// }
 
 function validateSearchInput() {
   const { searchInputRef, showMoreBtnContainerRef, showAllCardsContainerRef, lengthMessageRef, pokemonCouldNotFoundContainerRef } = getIdRefs();
@@ -177,5 +175,16 @@ function checkPokemonNumber(indexPokemonList) {
 
   if (indexPokemonList == AllPokemon.length - 1) {
     btnRightRef.classList.add('d-none');
+  }
+}
+
+function getGermanText(index) {
+  for (let indexSpecies = 0; indexSpecies < speciesText[index].flavor_text_entries.length; indexSpecies++) {
+    const element = speciesText[index].flavor_text_entries[indexSpecies];
+
+    if (element.language && element.language.name === 'de') {
+      germanSpeciesText = element.flavor_text;
+      return;
+    }
   }
 }

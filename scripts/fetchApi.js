@@ -1,5 +1,5 @@
 async function fetchPokemonList() {
-  const { showMoreBtnContainerRef, dataCouldNotLoadedContainerRef, loadingOverlayRef } = getIdRefs();
+  // const { showMoreBtnContainerRef, dataCouldNotLoadedContainerRef, loadingOverlayRef } = getIdRefs();
   showLoadingOverlay();
   try {
     const BASE_URL = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${amountOfLoadedPokemon}&offset=0`);
@@ -15,60 +15,38 @@ async function fetchPokemonList() {
     renderCards();
     checkButtonVisibility();
   } catch (error) {
-    loadingOverlayRef.classList.remove('d-flex');
-    showMoreBtnContainerRef.classList.add('d-none');
-    dataCouldNotLoadedContainerRef.innerHTML += templateDataCouldNotLoadedHtml();
-    console.error(error);
+    showLoadingError(error);
   }
   removeLoadingOverlay();
 }
 
 async function fetchPokemonDetails(indexSinglePokemon) {
-  const { showMoreBtnContainerRef, dataCouldNotLoadedContainerRef, showAllCardsContainerRef, loadingOverlayRef, cardOverlayFullScreenRef } =
-    getIdRefs();
-  const isLoadingOverlayActive = loadingOverlayRef.classList.contains('d-flex');
-  if (!isLoadingOverlayActive) {
-    showLoadingOverlay();
-  }
-
-  try {
-    let pokemonUrl = singlePokemonArray[indexSinglePokemon].url;
-    let SINGLE_POKEMON_URL = await fetch(pokemonUrl);
-    pokemonDetails[indexSinglePokemon] = await SINGLE_POKEMON_URL.json();
-
-    removeCouldNotLoadetMessage();
-    checkButtonVisibility();
-  } catch (error) {
-    loadingOverlayRef.classList.remove('d-flex');
-    showAllCardsContainerRef.classList.add('d-none');
-    showMoreBtnContainerRef.classList.add('d-none');
-    dataCouldNotLoadedContainerRef.innerHTML += templateDataCouldNotLoadedHtml();
-    console.error(error);
-  }
-  removeLoadingOverlay();
+  let url = singlePokemonArray[indexSinglePokemon].url;
+  pokemonDetails[indexSinglePokemon] = await fetchData(url);
 }
 
 async function fetchSpeciesText(indexSinglePokemon) {
-  const { showMoreBtnContainerRef, dataCouldNotLoadedContainerRef, showAllCardsContainerRef, loadingOverlayRef, cardOverlayFullScreenRef } =
-    getIdRefs();
+  let url = pokemonDetails[indexSinglePokemon].species.url;
+  speciesText[indexSinglePokemon] = await fetchData(url);
+}
+
+async function fetchData(url) {
+  const { loadingOverlayRef } = getIdRefs();
   const isLoadingOverlayActive = loadingOverlayRef.classList.contains('d-flex');
   if (!isLoadingOverlayActive) {
     showLoadingOverlay();
   }
 
+  let json;
   try {
-    let speciesTextUrl = pokemonDetails[indexSinglePokemon].species.url;
-    let SPECIES_TEXT_URL = await fetch(speciesTextUrl);
-    speciesText[indexSinglePokemon] = await SPECIES_TEXT_URL.json();
+    let result = await fetch(url);
+    json = await result.json();
 
     removeCouldNotLoadetMessage();
     checkButtonVisibility();
   } catch (error) {
-    loadingOverlayRef.classList.remove('d-flex');
-    showAllCardsContainerRef.classList.add('d-none');
-    showMoreBtnContainerRef.classList.add('d-none');
-    dataCouldNotLoadedContainerRef.innerHTML += templateDataCouldNotLoadedHtml();
-    console.error(error);
+    showLoadingError(error);
   }
   removeLoadingOverlay();
+  return json;
 }

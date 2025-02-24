@@ -41,6 +41,7 @@ function templatePokemonCouldNotFoundHtml() {
 
 function templateFullScreenCardHtml(indexPokemonList) {
   let typeTwoHtml = '';
+  getGermanText(indexPokemonList);
 
   if (pokemonDetails[indexPokemonList].types.length > 1) {
     typeTwoHtml = /*html*/ `<span class="type-two  bg-${pokemonDetails[indexPokemonList].types[1].type.name}" id="type_two_${indexPokemonList}">${pokemonDetails[indexPokemonList].types[1].type.name}</span>`;
@@ -84,22 +85,10 @@ function templateFullScreenCardHtml(indexPokemonList) {
                  ${typeTwoHtml}
                </div>
              </div>
-     
-             <!-- <div class="weaknesses">
-               <span class="weaknesses-hedline">Schwächen</span>
-               <div class="weaknesses-type-container">
-                 <span class="type-one  bg-${pokemonDetails[indexPokemonList].types[0].type.name}" id="type_one_overlay_${indexPokemonList}"
-                   >${pokemonDetails[indexPokemonList].types[0].type.name}</span
-                 >
-                 ${typeTwoHtml}
-               </div>
-             </div> -->
            </div>
 
-
-
             <div id="information_text" class="information-text">
-              <span>${speciesText[indexPokemonList].flavor_text_entries[25]['flavor_text']}</span>
+              <span>${germanSpeciesText}</span>
             </div>
             <div id="infomration_table" class="information-table">
               <table>
@@ -113,11 +102,9 @@ function templateFullScreenCardHtml(indexPokemonList) {
                 </tr>
                 <tr>
                   <th>Gewicht</th>
-                  <th>Fähigkeiten</th>
                 </tr>
                 <tr>
                   <td>${weightNumber} kg</td>
-                  <td>Notdünger <span class="question-mark">?</span></td>
                 </tr>
                
               </table>
