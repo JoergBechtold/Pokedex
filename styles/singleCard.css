@@ -7,7 +7,10 @@
   justify-content: flex-start;
   cursor: pointer;
   border: var(--border-black);
-  min-width: 250px;
+  width: fit-content;
+  /* width: 310px; */
+  /* min-width: 250px; */
+  /* max-width: 250px; */
 }
 
 .headline-card {
@@ -24,7 +27,7 @@
 .img-card {
   display: flex;
   align-self: center;
-  min-height: 345px;
+  /* min-height: 345px; */
   position: relative;
   border-radius: 10px;
   transition: transform 0.3s ease;
@@ -63,4 +66,10 @@
   /* background-color: aqua;# */
   width: 50%;
   border-radius: var(--border-radius-10px);
+}
+
+@media screen and (max-width: 380px) {
+  .single-card {
+    width: 100%;
+  }
 }

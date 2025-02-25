@@ -1,4 +1,3 @@
-/* Everything that is global comes in here */
 :root {
   /* margin */
   --margin-10percent: 10%;
@@ -10,8 +9,10 @@
 
   /* -sizes */
   --header-height: 100px;
+  --header-height-responsive: 120px;
   --footer-height: 250px;
   --scrollbar-width: 10px;
+  --scrollbar-width-responsive: 5px;
   --h1-size-header: clamp(18px, 14.5217px + 1.087vw, 28px);
   --h2-size-footer: clamp(16px, 12.5217px + 1.087vw, 26px);
   --a-size-footer: clamp(10px, 8.6087px + 0.4348vw, 14px);
@@ -20,11 +21,13 @@
   --span-size-12-16: clamp(12px, 10.6087px + 0.4348vw, 16px);
   --span-size-14-18: clamp(14px, 12.6087px + 0.4348vw, 18px);
   --span-size-20-30: clamp(20px, 16.5217px + 1.087vw, 30px);
-  --p-size-11-14: clamp(0.6875rem, 0.6223rem + 0.3261vw, 0.875rem);
+  --p-size-11-14: clamp(11px, 9.9565px + 0.3261vw, 14px);
   --sozial-media-icons-height-footer: clamp(40px, 34.7826px + 1.6304vw, 55px);
   --sozial-media-icons-width-footer: clamp(40px, 34.7826px + 1.6304vw, 55px);
   --header-logo: clamp(35px, 22.8261px + 3.8043vw, 70px);
   --header-logo-name: clamp(110px, 61.3043px + 15.2174vw, 250px);
+  --size-45-70: clamp(45px, 36.3043px + 2.7174vw, 70px);
+  --size-13-17: clamp(13px, 11.6087px + 0.4348vw, 17px);
 
   /* color */
   --footer-gray: #1f1f1f;
@@ -43,9 +46,117 @@
   --border-black: 1px solid black;
 }
 
-/* Responsive Breakpoints!!
-Smartphones	320 - 480
-Tablets	481 - 768
-Laptops	769 - 1024
-Desktops	1025 - 1440
-Große Screens	1441+ */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-family: 'Autour One';
+}
+
+body {
+  width: 100%;
+  display: grid;
+  grid-template-rows: var(--header-height) minmax(250px, 1fr) var(--footer-height);
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+  min-height: 100dvh;
+  position: relative;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.margin-left {
+  margin-left: var(--margin-15px);
+}
+
+.margin-right {
+  margin-right: var(--margin-15px);
+}
+
+.gab-10px {
+  gap: 10px;
+}
+
+.text-wrap {
+  display: block;
+  flex-grow: 1;
+  text-align: center;
+  hyphens: auto;
+}
+
+.d-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.d-flex-jc-center {
+  display: flex;
+  justify-content: center;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-none {
+  display: none;
+}
+
+.padding-bottom-50px {
+  padding-bottom: 55px;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+.padding-right {
+  padding-right: var(--scrollbar-width);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+  cursor: grab;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--secondary);
+  cursor: grabbing;
+}
+
+@media screen and (max-width: 830px) {
+  ::-webkit-scrollbar {
+    width: var(--scrollbar-width-responsive);
+  }
+}
+
+@media screen and (max-width: 575px) {
+  body {
+    grid-template-rows: var(--header-height-responsive) minmax(250px, 1fr) var(--footer-height);
+  }
+}

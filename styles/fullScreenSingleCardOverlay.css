@@ -21,14 +21,7 @@
   position: relative;
   height: 90%;
   width: 85%;
-  /* width: 1350px; */
   max-width: 1175px;
-  /* display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas:
-    'headline-container'
-    'information-container'
-    'btn-container'; */
 
   border: var(--border-black);
   background-color: white;
@@ -42,7 +35,6 @@
   background-color: var(--secondary);
   top: 16px;
   right: 16px;
-  /* position: absolute; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,11 +60,7 @@
     'headline-container'
     'information-container'
     'btn-container';
-  /* min-height: 100%; */
   width: 100%;
-  /* display: grid; */
-  /* flex-direction: column;
-  align-items: center; */
 }
 
 .headline-container-full-screen {
@@ -82,7 +70,6 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  /* padding-bottom: 15px; */
   padding: var(--padding-15px);
 }
 
@@ -111,7 +98,7 @@
   grid-area: information-container;
   background-color: var(--light-gray);
   padding-inline: var(--padding-15px);
-  position: relative;
+  /* position: relative; */
   display: grid;
   grid-template-columns: 45% 50%;
   column-gap: 5%;
@@ -120,18 +107,16 @@
     'img-container right-container'
     'img-container right-container';
   width: 100%;
-  /* min-height: 100%; */
 }
 
 .information-right-content {
   grid-area: right-container;
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
   gap: 35px;
-  /* padding-bottom: var(--padding-15px); */
 }
 
 .information-img-container {
@@ -139,20 +124,15 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  /* height: 450px; */
-  /* max-width: 100%;
-  min-width: 100%; */
-  /* aspect-ratio: 1/1; */
 }
 
 .information-img-container img {
   display: block;
   object-fit: contain;
-  /* height: 100%; */
+  width: 100%;
 }
 
 .gif-container {
-  /* padding-top: 35px; */
   display: flex;
   justify-content: center;
 }
@@ -163,16 +143,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* gap: 10px; */
 }
 
-.characteristics,
-.weaknesses {
+.characteristics {
   width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
+}
+
+.characteristics span {
+  font-size: var(--span-size-14-18);
 }
 
 .characteristics-type-container,
@@ -185,8 +167,6 @@
 .information-text {
   height: 100px;
   display: flex;
-  /* height: fit-content; */
-  /* align-items: end; */
 }
 
 .information-text span {
@@ -210,6 +190,7 @@ td {
   padding: 10px;
   text-align: left;
   color: black;
+  font-size: var(--span-size-14-18);
 }
 
 th {
@@ -223,7 +204,6 @@ th {
   left: 0;
   right: 0;
   height: 90px;
-  /* grid-area: btn-container; */
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -245,7 +225,6 @@ th {
   background-color: var(--secondary);
   cursor: pointer;
   padding: 12px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -265,4 +244,73 @@ th {
 
 .btn-right {
   transform: rotate(180deg);
+}
+
+@media screen and (max-width: 992px) {
+  .card-container-full-screen {
+    margin-inline: 0;
+    position: relative;
+    height: 100%;
+    width: unset;
+
+    border: unset;
+    background-color: white;
+    border-radius: unset;
+    box-shadow: unset;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .close-btn {
+    width: 40px;
+  }
+
+  .btn-content-left,
+  .btn-content-right {
+    width: 65px;
+  }
+
+  .characteristics {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .content-full-screen {
+    grid-template-rows: 90px 90px 1fr;
+    grid-template-areas:
+      'headline-container'
+      'btn-container'
+      'information-container';
+  }
+  .information-container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+  }
+
+  .information-img-container {
+    margin-top: 25px;
+    height: unset;
+    width: 50%;
+  }
+
+  .characteristics-container-overlay {
+    justify-content: center;
+  }
+
+  .information-right-content {
+    gap: 25px;
+    height: unset;
+  }
+
+  .gif-container {
+    position: absolute;
+    top: 190px;
+    right: 5px;
+  }
+
+  .information-table {
+    margin-bottom: 25px;
+  }
 }

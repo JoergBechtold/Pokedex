@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="styles/footer.css" />
     <link rel="stylesheet" href="styles/assets.css" />
     <link rel="stylesheet" href="styles/fonts.css" />
-    <link rel="stylesheet" href="styles/standard.css" />
     <link rel="stylesheet" href="styles/bg-color.css" />
   </head>
   <body onload="checkIfContainerEmpty(),initFunction()">
@@ -39,12 +38,15 @@
         </div>
 
         <div class="search-container">
-          <p id="error_message" class="error-message">Nur Buchstaben erlaubt!</p>
-          <p id="length_message" class="length-message">Mindestens 3 Buchstaben eingeben!</p>
+          <div id="not_valide_message_container" class="not-valide-message-container">
+            <p id="error_message" class="error-message">Nur Buchstaben aA - zZ erlaubt!</p>
+            <p id="length_message" class="length-message">Mindestens 3 Buchstaben eingeben!</p>
+          </div>
 
           <div class="search">
             <form>
               <input
+                required
                 oninput="validateSearchInput()"
                 class="search-input"
                 type="text"
@@ -100,7 +102,7 @@
     <footer>
       <h2>The POKEDEX Company</h2>
       <div class="d-flex-jc-center">
-        <div class="footer-links">
+        <div class="footer-links margin-left">
           <a href="">Neuigkeiten</a>
           <a href="">Pokedex-Ratgeber</a>
           <a href="">Kundenservice</a>
@@ -122,7 +124,7 @@
           /></a>
         </div>
         <div class="footer-dividing-line"></div>
-        <div class="footer-links">
+        <div class="footer-links margin-right">
           <a href="">Nutzungsbedingungen</a>
           <a href="">Datenschutzerklärung</a>
           <a href="">Informationen zu Cookies</a>

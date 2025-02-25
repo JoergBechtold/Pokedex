@@ -1,5 +1,4 @@
 footer {
-  /* min-height: 90px; */
   grid-area: footer;
   background-color: var(--footer-gray);
   width: 100%;
@@ -13,6 +12,7 @@ footer {
 
 footer h2 {
   text-align: center;
+  font-size: var(--h2-size-footer);
 }
 
 .footer-links {
@@ -24,8 +24,10 @@ footer h2 {
 }
 
 .footer-links a {
+  text-align: center;
   font-size: var(--a-size-footer);
   color: white;
+  /* word-break: break-all; */
 }
 
 .footer-links span {
@@ -65,4 +67,20 @@ footer h2 {
 
 .footer-sozial-media-icons img:hover {
   scale: 1.1;
+}
+
+@media screen and (max-width: 440px) {
+  footer {
+    height: fit-content;
+  }
+
+  .footer-dividing-line {
+    display: none;
+  }
+
+  .d-flex-jc-center {
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 35px;
+  }
 }

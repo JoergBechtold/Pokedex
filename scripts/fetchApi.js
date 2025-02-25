@@ -1,5 +1,4 @@
 async function fetchPokemonList() {
-  // const { showMoreBtnContainerRef, dataCouldNotLoadedContainerRef, loadingOverlayRef } = getIdRefs();
   showLoadingOverlay();
   try {
     const BASE_URL = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${amountOfLoadedPokemon}&offset=0`);

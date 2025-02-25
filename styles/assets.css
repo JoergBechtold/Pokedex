@@ -33,22 +33,37 @@
   align-items: center;
 }
 
-.data-could-not-loaded-container {
+/* .data-could-not-loaded-container {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: 45%;
   left: 25%;
+} */
+
+.data-could-not-loaded-container span,
+.pokemon-could-not-found-container span {
+  font-size: var(--span-size-14-18);
 }
 
+.data-could-not-loaded-container,
 .pokemon-could-not-found-container {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: 45%;
-  left: 25%;
+  width: 100%;
+  padding-inline: 15px;
+  /* margin-left: var(--margin-15px);
+  margin-right: calc(var(--margin-15px) - var(--scrollbar-width)); */
+}
+
+.data-could-not-loaded-container span,
+.pokemon-could-not-found-container span {
+  text-wrap: wrap;
+  text-align: center;
 }
 
 .data-could-not-be-loaded {
@@ -86,7 +101,7 @@
   background-image: url('../assets/icons/Poké-Ball-icon.png');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 70px;
+  height: var(--size-45-70);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   animation: dots 1.5s infinite;
@@ -117,4 +132,11 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+@media screen and (max-width: 1430) {
+  /* .data-could-not-loaded-container,
+  .pokemon-could-not-found-container {
+    left: 31%;
+  } */
 }
